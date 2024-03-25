@@ -26,11 +26,12 @@ function renderCountries(data) {
   //   a.name.common.localeCompare(b.name.common)
   // );
   // sortedCountries.forEach((country) => {
+    
     const sortedCountries = data.slice().sort((a, b) => a.name.common.localeCompare(b.name.common));
 
 sortedCountries.forEach((country) => {
   // Render country cards here
-
+//Here we sort over countries 
 
     const countryCard = document.createElement('a')
     countryCard.classList.add('country-card')
