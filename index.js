@@ -32,7 +32,7 @@ function renderCountries(data) {
 sortedCountries.forEach((country) => {
   // Render country cards here
 //Here we sort over countries 
-
+//
     const countryCard = document.createElement('a')
     countryCard.classList.add('country-card')
     countryCard.href = `/country.html?name=${country.name.common}`
