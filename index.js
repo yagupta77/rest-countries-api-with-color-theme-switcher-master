@@ -10,6 +10,7 @@ fetch('https://restcountries.com/v3.1/all')
   .then((data) => {
     renderCountries(data)
     allCountriesData = data
+    
   })
 
 filterByRegion.addEventListener('change', (e) => {
@@ -19,8 +20,18 @@ filterByRegion.addEventListener('change', (e) => {
 })
 
 function renderCountries(data) {
-  countriesContainer.innerHTML = ''
-  data.forEach((country) => {
+   countriesContainer.innerHTML = ''
+  // data.forEach((country) => {
+  //   const sortedCountries = data.sort((a, b) =>
+  //   a.name.common.localeCompare(b.name.common)
+  // );
+  // sortedCountries.forEach((country) => {
+    const sortedCountries = data.slice().sort((a, b) => a.name.common.localeCompare(b.name.common));
+
+sortedCountries.forEach((country) => {
+  // Render country cards here
+
+
     const countryCard = document.createElement('a')
     countryCard.classList.add('country-card')
     countryCard.href = `/country.html?name=${country.name.common}`
@@ -35,9 +46,12 @@ function renderCountries(data) {
               <p><b>Capital: </b>${country.capital?.[0]}</p>
           </div>
   `
-    countriesContainer.append(countryCard)
-  })
-}
+       countriesContainer.append(countryCard)
+   
+    
+      });
+    }
+
 
 
 searchInput.addEventListener('input',  (e) => {
